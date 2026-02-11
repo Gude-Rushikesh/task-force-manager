@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx json-server --watch db.json --port 10000 --host 0.0.0.0"
+    "start": "json-server --watch db.json --port $PORT --host 0.0.0.0"
 
   },
   "keywords": [],
@@ -12,6 +12,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "json-server": "^1.0.0-beta.5"
+    "json-server": "^0.17.4"
   }
 }
