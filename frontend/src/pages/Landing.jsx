@@ -170,7 +170,7 @@ export default function Landing() {
       flex justify-between items-center">
 
       <h1 className="text-lg md:text-xl font-semibold tracking-wide">
-        Task Force
+        Task Force Manager
       </h1>
 
       {/* Hide nav links on mobile */}

@@ -162,13 +162,17 @@ export default function OrbitShowcase() {
           </defs>
 
           {/* STATIC RINGS */}
-          <circle cx="260" cy="260" r="220" stroke="rgba(45,212,191,0.55)" strokeWidth="40" />
-          <circle cx="260" cy="260" r="240" fill="none" stroke="white" strokeWidth="1"/>
-          <circle cx="260" cy="260" r="180" stroke="rgba(192,132,252,0.45)" strokeWidth="40"/>
-          <circle cx="260" cy="260" r="200" fill="none" stroke="white" strokeWidth="1"/>
-          <circle cx="260" cy="260" r="140" stroke="rgba(56,189,248,0.65)" strokeWidth="40" />
-          <circle cx="260" cy="260" r="160" fill="none" stroke="white" strokeWidth="1"/>
-          <circle cx="260" cy="260" r="120" fill="none" stroke="white" strokeWidth="1"/>
+          {/* STATIC RINGS */}
+    <circle cx="260" cy="260" r="220" stroke="rgba(16,185,129,0.55)" strokeWidth="40" />
+    <circle cx="260" cy="260" r="240" fill="none" stroke="white" strokeWidth="1"/>
+
+    <circle cx="260" cy="260" r="180" stroke="rgba(139,92,246,0.45)" strokeWidth="40"/>
+    <circle cx="260" cy="260" r="200" fill="none" stroke="white" strokeWidth="1"/>
+
+    <circle cx="260" cy="260" r="140" stroke="rgba(34,211,238,0.6)" strokeWidth="40" />
+    <circle cx="260" cy="260" r="160" fill="none" stroke="white" strokeWidth="1"/>
+    <circle cx="260" cy="260" r="120" fill="none" stroke="white" strokeWidth="1"/>
+
 
           {/* OUTER */}
           <g>
@@ -180,8 +184,8 @@ export default function OrbitShowcase() {
               dur="18s"
               repeatCount="indefinite"
             />
-            <line x1="260" y1="260" x2="285" y2="42" stroke="rgba(45,212,191)" strokeWidth={3} />
-            <text fill="black" fontSize="18" fontWeight="bold" letterSpacing="3">
+            <line x1="260" y1="260" x2="285" y2="42" stroke="#10B981" strokeWidth={3} />
+            <text fill="#E5E7EB" fontSize="18" fontWeight="bold" letterSpacing="3">
               <textPath href="#outerPath">TASK</textPath>
             </text>
           </g>
@@ -196,8 +200,8 @@ export default function OrbitShowcase() {
               dur="14s"
               repeatCount="indefinite"
             />
-            <line x1="260" y1="260" x2="295" y2="83" stroke="rgba(192,132,252,1)" strokeWidth={3} />
-            <text fill="black" fontSize="18" fontWeight="bold" letterSpacing="3">
+            <line x1="260" y1="260" x2="295" y2="83" stroke="#8B5CF6" strokeWidth={3} />
+            <text fill="#E5E7EB" fontSize="18" fontWeight="bold" letterSpacing="3">
               <textPath href="#middlePath">FORCE</textPath>
             </text>
           </g>
@@ -212,9 +216,9 @@ export default function OrbitShowcase() {
               dur="10s"
               repeatCount="indefinite"
             />
-            <line x1="260" y1="260" x2="335" y2="143" stroke="rgba(56,189,248,1)" strokeWidth={3} />
-            <text fill="black" fontSize="18" fontWeight="bold" letterSpacing="3">
-              <textPath href="#innerPath">MANAGEMENT</textPath>
+            <line x1="260" y1="260" x2="320" y2="140" stroke="#22D3EE" strokeWidth={3} />
+            <text fill="#E5E7EB" fontSize="18" fontWeight="bold" letterSpacing="3">
+              <textPath href="#innerPath">MANAGER</textPath>
             </text>
           </g>
 
