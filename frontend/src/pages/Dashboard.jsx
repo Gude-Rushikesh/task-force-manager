@@ -60,8 +60,9 @@ function Dashboard() {
   //filtering logic
   const filteredTasks = tasks.filter((task) => {
     const matchesSearch =
-      task.title.toLowerCase().includes(search.toLowerCase()) ||
-      task.staff.toLowerCase().includes(search.toLowerCase());
+  (task.title || "").toLowerCase().includes(search.toLowerCase()) ||
+  (task.staff || "").toLowerCase().includes(search.toLowerCase());
+
 
     const matchesStatus =
       statusFilter === "All" || task.status === statusFilter;
