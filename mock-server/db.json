@@ -1,0 +1,343 @@
+{
+  "employees": [
+    {
+      "id": "EMP-2025-001",
+      "name": "Aarav Patil",
+      "department": "Billing",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-002",
+      "name": "Rohan Deshmukh",
+      "department": "Stock",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-003",
+      "name": "Kunal Joshi",
+      "department": "Entry",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-004",
+      "name": "Sahil Kulkarni",
+      "department": "Warehouse",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-005",
+      "name": "Nikhil More",
+      "department": "Billing",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-006",
+      "name": "Omkar Jadhav",
+      "department": "Stock",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-007",
+      "name": "Aditya Pawar",
+      "department": "Entry",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-008",
+      "name": "Pratik Shinde",
+      "department": "Warehouse",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-009",
+      "name": "Tejas Kale",
+      "department": "Billing",
+      "status": "Active"
+    },
+    {
+      "id": "EMP-2025-010",
+      "name": "Akash Ghodke",
+      "department": "Stock",
+      "status": "Active"
+    },
+    {
+      "id": "5993",
+      "name": "Sneha Pandurang Gude",
+      "phone": "9096362303",
+      "location": "Pune, IN",
+      "status": "Inactive"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Process vendor invoices",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-001",
+      "department": "Billing",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 2,
+      "title": "Update stock register",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-002",
+      "department": "Stock",
+      "priority": "Medium",
+      "status": "Assigned"
+    },
+    {
+      "id": 3,
+      "title": "Daily data entry",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-003",
+      "department": "Entry",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": 4,
+      "title": "Warehouse item audit",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-004",
+      "department": "Warehouse",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 5,
+      "title": "Generate billing report",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-005",
+      "department": "Billing",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": 6,
+      "title": "Stock reconciliation",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-006",
+      "department": "Stock",
+      "priority": "High",
+      "status": "Assigned"
+    },
+    {
+      "id": 7,
+      "title": "Client entry verification",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-007",
+      "department": "Entry",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": 8,
+      "title": "Warehouse safety check",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-008",
+      "department": "Warehouse",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": 9,
+      "title": "GST filing prep",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-009",
+      "department": "Billing",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 10,
+      "title": "Stock inward entries",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-010",
+      "department": "Stock",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": 11,
+      "title": "Manual invoice correction",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-011",
+      "department": "Billing",
+      "priority": "Medium",
+      "status": "Assigned"
+    },
+    {
+      "id": 12,
+      "title": "Inventory labeling",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-012",
+      "department": "Warehouse",
+      "priority": "Low",
+      "status": "In Progress"
+    },
+    {
+      "id": 13,
+      "title": "Customer data cleanup",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-013",
+      "department": "Entry",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": 14,
+      "title": "Stock shortage analysis",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-014",
+      "department": "Stock",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 15,
+      "title": "Billing discrepancy review",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-015",
+      "department": "Billing",
+      "priority": "High",
+      "status": "Assigned"
+    },
+    {
+      "id": 16,
+      "title": "Warehouse dispatch log",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-016",
+      "department": "Warehouse",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": 17,
+      "title": "Data backlog clearing",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-017",
+      "department": "Entry",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 18,
+      "title": "Stock damage report",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-018",
+      "department": "Stock",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": 19,
+      "title": "Billing summary mail",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-019",
+      "department": "Billing",
+      "priority": "Low",
+      "status": "Completed"
+    },
+    {
+      "id": 20,
+      "title": "Warehouse space planning",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-020",
+      "department": "Warehouse",
+      "priority": "High",
+      "status": "Assigned"
+    },
+    {
+      "id": 21,
+      "title": "Entry accuracy audit",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-021",
+      "department": "Entry",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": 22,
+      "title": "Stock reorder planning",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-022",
+      "department": "Stock",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": 23,
+      "title": "Invoice archiving",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-023",
+      "department": "Billing",
+      "priority": "Low",
+      "status": "Assigned"
+    },
+    {
+      "id": 24,
+      "title": "Warehouse returns handling",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-024",
+      "department": "Warehouse",
+      "priority": "Medium",
+      "status": "In Progress"
+    },
+    {
+      "id": 25,
+      "title": "Bulk entry upload",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-025",
+      "department": "Entry",
+      "priority": "High",
+      "status": "Completed"
+    },
+    {
+      "id": 26,
+      "title": "Stock ledger update",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-026",
+      "department": "Stock",
+      "priority": "Low",
+      "status": "Assigned"
+    },
+    {
+      "id": 27,
+      "title": "Billing cycle closure",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-027",
+      "department": "Billing",
+      "priority": "High",
+      "status": "In Progress"
+    },
+    {
+      "id": 28,
+      "title": "Warehouse inventory sync",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-028",
+      "department": "Warehouse",
+      "priority": "Medium",
+      "status": "Completed"
+    },
+    {
+      "id": 29,
+      "title": "Entry validation errors",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-029",
+      "department": "Entry",
+      "priority": "Low",
+      "status": "Assigned"
+    },
+    {
+      "id": 30,
+      "title": "Stock movement analysis",
+      "taskType": "Specific",
+      "employeeId": "EMP-2025-030",
+      "department": "Stock",
+      "priority": "High",
+      "status": "In Progress"
+    }
+  ]
+}
