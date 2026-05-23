@@ -1,18 +1,19 @@
-import axios from "axios";
-
-const BASE_URL = import.meta.env.VITE_API_URL;
+import api from "./api";
 
 export const getTasks = () =>
-  axios.get(`${BASE_URL}/tasks`);
+  api.get("/tasks");
 
 export const createTask = (data) =>
-  axios.post(`${BASE_URL}/tasks`, data);
+  api.post("/tasks", data);
 
 export const updateTask = (id, data) =>
-  axios.put(`${BASE_URL}/tasks/${id}`, data);
+  api.put(`/tasks/${id}`, data);
 
 export const deleteTask = (id) =>
-  axios.delete(`${BASE_URL}/tasks/${id}`);
+  api.delete(`/tasks/${id}`);
 
 export const getTaskById = (id) =>
-  axios.get(`${BASE_URL}/tasks/${id}`);
+  api.get(`/tasks/${id}`);
+
+export const addTaskComment = (id, data) =>
+  api.post(`/tasks/${id}/comments`, data);

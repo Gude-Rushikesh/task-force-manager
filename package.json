@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "mock-server": "json-server --watch mock-server/db.json --port 3001",
-    "start": "json-server --watch db.json --port 10000 --host 0.0.0.0"
+    "backend": "npm --prefix backend run dev",
+    "frontend": "npm --prefix frontend run dev",
+    "seed": "npm --prefix backend run seed",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
   },
   "keywords": [],
   "author": "",

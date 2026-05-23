@@ -6,11 +6,6 @@ import {
 
 const COLORS = ["#0ea5e9", "#22c55e", "#f59e0b"]; // blue, green, amber
 
-
-
-
-
-
 function DashboardCharts({ tasks, employees }) {
 
   /* ===== 1. STATUS PIE ===== */

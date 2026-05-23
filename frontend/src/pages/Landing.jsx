@@ -2,8 +2,6 @@
 import { useEffect } from "react";
 import OrbitShowcase from "../components/OrbitShowcase";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import PreviewCharts from "../components/PreviewCharts";
 
 
