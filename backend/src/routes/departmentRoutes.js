@@ -1,12 +1,8 @@
-const express = require("express");
-const {
-  listDepartments,
-  createDepartment,
-  updateDepartment,
-} = require("../controllers/departmentController");
-const { protect, authorize } = require("../middleware/auth");
+import { Router } from "express";
+import { listDepartments, createDepartment, updateDepartment } from "../controllers/departmentController";
+import { protect, authorize } from "../middleware/auth";
 
-const router = express.Router();
+const router = Router();
 
 router.use(protect);
 
@@ -17,4 +13,4 @@ router
 
 router.put("/:id", authorize("Admin"), updateDepartment);
 
-module.exports = router;
+export default router;

@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     name: { type: String, required: true, trim: true, maxlength: 80 },
     email: {
@@ -24,9 +24,9 @@ const userSchema = new mongoose.Schema(
       default: "Active",
       index: true,
     },
-    employee: { type: mongoose.Schema.Types.ObjectId, ref: "Employee" },
+    employee: { type: Schema.Types.ObjectId, ref: "Employee" },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-module.exports = mongoose.model("User", userSchema);
+export default model("User", userSchema);

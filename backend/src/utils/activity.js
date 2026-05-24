@@ -1,7 +1,7 @@
-const ActivityLog = require("../models/ActivityLog");
+import { create } from "../models/ActivityLog";
 
 async function logActivity({ actor, action, entityType, entityId, metadata = {} }) {
-  await ActivityLog.create({
+  await create({
     actor,
     action,
     entityType,
@@ -10,4 +10,4 @@ async function logActivity({ actor, action, entityType, entityId, metadata = {} 
   });
 }
 
-module.exports = logActivity;
+export default logActivity;

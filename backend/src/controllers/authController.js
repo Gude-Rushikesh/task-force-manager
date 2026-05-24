@@ -1,8 +1,8 @@
-const User = require("../models/User");
-const Employee = require("../models/Employee");
+const User = require("../models/User").default;
+const Employee = require("../models/Employee").default;
 const AppError = require("../utils/AppError");
 const asyncHandler = require("../utils/asyncHandler");
-const { hashPassword, verifyPassword } = require("../utils/password");
+const { hashPassword, verifyPassword } = require("../utils/password").default;
 const { signToken } = require("../utils/jwt");
 const logActivity = require("../utils/activity");
 
@@ -59,7 +59,9 @@ const login = asyncHandler(async (req, res) => {
     throw new AppError("Email and password are required", 400);
   }
 
-  const user = await User.findOne({ email: email.toLowerCase() }).select("+passwordHash");
+  const user = await User.findOne({ email: email.toLowerCase() }).select(
+    "+passwordHash",
+  );
 
   if (!user || !verifyPassword(password, user.passwordHash)) {
     throw new AppError("Invalid email or password", 401);

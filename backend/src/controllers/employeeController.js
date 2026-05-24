@@ -1,6 +1,6 @@
-const Employee = require("../models/Employee");
-const Department = require("../models/Department");
-const Task = require("../models/task");
+const Employee = require("../models/Employee").default;
+const Department = require("../models/Department").default;
+const Task = require("../models/task").default;
 const AppError = require("../utils/AppError");
 const asyncHandler = require("../utils/asyncHandler");
 const logActivity = require("../utils/activity");
@@ -8,7 +8,8 @@ const logActivity = require("../utils/activity");
 function buildEmployeeQuery(query) {
   const filter = {};
   if (query.status && query.status !== "All") filter.status = query.status;
-  if (query.department && query.department !== "All") filter.department = query.department;
+  if (query.department && query.department !== "All")
+    filter.department = query.department;
   if (query.search) filter.$text = { $search: query.search };
   return filter;
 }
@@ -31,13 +32,18 @@ const listEmployees = asyncHandler(async (req, res) => {
 });
 
 const getEmployee = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.params.id).populate("department", "name code");
+  const employee = await Employee.findById(req.params.id).populate(
+    "department",
+    "name code",
+  );
   if (!employee) throw new AppError("Employee not found", 404);
   res.json(employee);
 });
 
 const createEmployee = asyncHandler(async (req, res) => {
-  const departmentExists = await Department.exists({ _id: req.body.department });
+  const departmentExists = await Department.exists({
+    _id: req.body.department,
+  });
   if (!departmentExists) throw new AppError("Department not found", 404);
 
   const employee = await Employee.create(req.body);
@@ -54,7 +60,9 @@ const createEmployee = asyncHandler(async (req, res) => {
 
 const updateEmployee = asyncHandler(async (req, res) => {
   if (req.body.department) {
-    const departmentExists = await Department.exists({ _id: req.body.department });
+    const departmentExists = await Department.exists({
+      _id: req.body.department,
+    });
     if (!departmentExists) throw new AppError("Department not found", 404);
   }
 
@@ -83,7 +91,10 @@ const deleteEmployee = asyncHandler(async (req, res) => {
   });
 
   if (assignedTasks > 0) {
-    throw new AppError("Cannot delete employee with active assigned tasks", 409);
+    throw new AppError(
+      "Cannot delete employee with active assigned tasks",
+      409,
+    );
   }
 
   const employee = await Employee.findByIdAndDelete(req.params.id);

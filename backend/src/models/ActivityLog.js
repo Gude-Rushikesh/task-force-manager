@@ -1,21 +1,21 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const activityLogSchema = new mongoose.Schema(
+const activityLogSchema = new Schema(
   {
-    actor: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    actor: { type: Schema.Types.ObjectId, ref: "User" },
     action: { type: String, required: true, trim: true },
     entityType: {
       type: String,
       enum: ["Task", "Employee", "Department", "User"],
       required: true,
     },
-    entityId: { type: mongoose.Schema.Types.ObjectId },
+    entityId: { type: Schema.Types.ObjectId },
     metadata: { type: Object, default: {} },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 activityLogSchema.index({ createdAt: -1 });
 activityLogSchema.index({ entityType: 1, entityId: 1 });
 
-module.exports = mongoose.model("ActivityLog", activityLogSchema);
+export default model("ActivityLog", activityLogSchema);

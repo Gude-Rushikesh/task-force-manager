@@ -1,12 +1,12 @@
 require("dotenv").config();
 
-const connectDB = require("./config/db");
-const User = require("./models/User");
-const Department = require("./models/Department");
-const Employee = require("./models/Employee");
-const Task = require("./models/task");
-const ActivityLog = require("./models/ActivityLog");
-const { hashPassword } = require("./utils/password");
+import connectDB from "./config/db";
+import { deleteMany, create } from "./models/User";
+import { deleteMany as _deleteMany, insertMany } from "./models/Department";
+import { deleteMany as __deleteMany, insertMany as _insertMany } from "./models/Employee";
+import { deleteMany as ___deleteMany, insertMany as __insertMany } from "./models/task";
+import { deleteMany as ____deleteMany } from "./models/ActivityLog";
+import { hashPassword } from "./utils/password";
 
 const departments = [
   { name: "Billing", code: "BIL", description: "Invoice processing and financial operations" },
@@ -49,31 +49,31 @@ async function seed() {
   await connectDB();
 
   await Promise.all([
-    User.deleteMany({}),
-    Department.deleteMany({}),
-    Employee.deleteMany({}),
-    Task.deleteMany({}),
-    ActivityLog.deleteMany({}),
+    deleteMany({}),
+    _deleteMany({}),
+    __deleteMany({}),
+    ___deleteMany({}),
+    ____deleteMany({}),
   ]);
 
-  const admin = await User.create({
+  const admin = await create({
     name: "Admin User",
     email: "admin@taskforce.dev",
     role: "Admin",
     passwordHash: hashPassword("Admin@12345"),
   });
 
-  const manager = await User.create({
+  const manager = await create({
     name: "Operations Manager",
     email: "manager@taskforce.dev",
     role: "Manager",
     passwordHash: hashPassword("Manager@12345"),
   });
 
-  const createdDepartments = await Department.insertMany(departments);
+  const createdDepartments = await insertMany(departments);
   const departmentByName = Object.fromEntries(createdDepartments.map((dep) => [dep.name, dep]));
 
-  const employees = await Employee.insertMany(
+  const employees = await _insertMany(
     names.map((name, index) => {
       const department = createdDepartments[index % createdDepartments.length];
       return {
@@ -90,7 +90,7 @@ async function seed() {
     })
   );
 
-  await User.create({
+  await create({
     name: employees[0].name,
     email: "employee@taskforce.dev",
     role: "Employee",
@@ -101,7 +101,7 @@ async function seed() {
   const statuses = ["Assigned", "In Progress", "Review", "Completed", "Blocked"];
   const priorities = ["Low", "Medium", "High", "Critical"];
 
-  await Task.insertMany(
+  await __insertMany(
     titles.map((title, index) => {
       const employee = employees[index % employees.length];
       const department = departmentByName[departments[index % departments.length].name];

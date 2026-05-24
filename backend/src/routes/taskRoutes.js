@@ -1,15 +1,8 @@
-const express = require("express");
-const {
-  listTasks,
-  getTask,
-  createTask,
-  updateTask,
-  addComment,
-  deleteTask,
-} = require("../controllers/taskController");
-const { protect, authorize } = require("../middleware/auth");
+import { Router } from "express";
+import { listTasks, getTask, createTask, updateTask, addComment, deleteTask } from "../controllers/taskController";
+import { protect, authorize } from "../middleware/auth";
 
-const router = express.Router();
+const router = Router();
 
 router.use(protect);
 
@@ -26,4 +19,4 @@ router
 
 router.post("/:id/comments", addComment);
 
-module.exports = router;
+export default router;

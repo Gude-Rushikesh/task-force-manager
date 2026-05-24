@@ -1,12 +1,13 @@
-const Task = require("../models/task");
-const Employee = require("../models/Employee");
-const Department = require("../models/Department");
+const Task = require("../models/task").default;
+const Employee = require("../models/Employee").default;
+const Department = require("../models/Department").default;
 const asyncHandler = require("../utils/asyncHandler");
 
 const getOverview = asyncHandler(async (req, res) => {
-  const employeeFilter = req.user.role === "Employee" && req.user.employee
-    ? { assignedTo: req.user.employee }
-    : {};
+  const employeeFilter =
+    req.user.role === "Employee" && req.user.employee
+      ? { assignedTo: req.user.employee }
+      : {};
   const now = new Date();
 
   const [
@@ -23,7 +24,11 @@ const getOverview = asyncHandler(async (req, res) => {
   ] = await Promise.all([
     Task.countDocuments(employeeFilter),
     Task.countDocuments({ ...employeeFilter, status: "Completed" }),
-    Task.countDocuments({ ...employeeFilter, status: { $ne: "Completed" }, dueDate: { $lt: now } }),
+    Task.countDocuments({
+      ...employeeFilter,
+      status: { $ne: "Completed" },
+      dueDate: { $lt: now },
+    }),
     Employee.countDocuments({ status: "Active" }),
     Department.countDocuments({ status: "Active" }),
     Task.aggregate([
@@ -50,7 +55,13 @@ const getOverview = asyncHandler(async (req, res) => {
     ]),
     Task.aggregate([
       { $match: { ...employeeFilter, status: { $ne: "Completed" } } },
-      { $group: { _id: "$assignedTo", activeTasks: { $sum: 1 }, hours: { $sum: "$estimatedHours" } } },
+      {
+        $group: {
+          _id: "$assignedTo",
+          activeTasks: { $sum: 1 },
+          hours: { $sum: "$estimatedHours" },
+        },
+      },
       {
         $lookup: {
           from: "employees",
@@ -78,7 +89,9 @@ const getOverview = asyncHandler(async (req, res) => {
       overdueTasks,
       activeEmployees,
       departments,
-      completionRate: totalTasks ? Math.round((completedTasks / totalTasks) * 100) : 0,
+      completionRate: totalTasks
+        ? Math.round((completedTasks / totalTasks) * 100)
+        : 0,
     },
     byStatus,
     byPriority,

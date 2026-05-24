@@ -1,13 +1,23 @@
-const mongoose = require("mongoose");
+import { Schema, model } from "mongoose";
 
-const employeeSchema = new mongoose.Schema(
+const employeeSchema = new Schema(
   {
-    employeeCode: { type: String, required: true, unique: true, trim: true, index: true },
+    employeeCode: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      index: true,
+    },
     name: { type: String, required: true, trim: true, maxlength: 80 },
     email: { type: String, lowercase: true, trim: true },
     phone: { type: String, trim: true },
     location: { type: String, trim: true, maxlength: 120 },
-    department: { type: mongoose.Schema.Types.ObjectId, ref: "Department", required: true },
+    department: {
+      type: Schema.Types.ObjectId,
+      ref: "Department",
+      required: true,
+    },
     designation: { type: String, trim: true, default: "Associate" },
     capacityHoursPerWeek: { type: Number, min: 1, max: 80, default: 40 },
     status: {
@@ -18,9 +28,9 @@ const employeeSchema = new mongoose.Schema(
     },
     joinedAt: { type: Date, default: Date.now },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 employeeSchema.index({ name: "text", employeeCode: "text", email: "text" });
 
-module.exports = mongoose.model("Employee", employeeSchema);
+export default model("Employee", employeeSchema);

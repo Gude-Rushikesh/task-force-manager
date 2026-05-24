@@ -1,4 +1,4 @@
-const Department = require("../models/Department");
+const Department = require("../models/Department").default;
 const asyncHandler = require("../utils/asyncHandler");
 const AppError = require("../utils/AppError");
 const logActivity = require("../utils/activity");
@@ -21,10 +21,14 @@ const createDepartment = asyncHandler(async (req, res) => {
 });
 
 const updateDepartment = asyncHandler(async (req, res) => {
-  const department = await Department.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
+  const department = await Department.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
 
   if (!department) throw new AppError("Department not found", 404);
   res.json(department);

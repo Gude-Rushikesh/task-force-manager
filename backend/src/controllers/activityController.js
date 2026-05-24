@@ -1,4 +1,4 @@
-const ActivityLog = require("../models/ActivityLog");
+const ActivityLog = require("../models/ActivityLog").default;
 const asyncHandler = require("../utils/asyncHandler");
 
 const listActivity = asyncHandler(async (_req, res) => {

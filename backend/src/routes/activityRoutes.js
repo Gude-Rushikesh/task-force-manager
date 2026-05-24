@@ -1,9 +1,9 @@
-const express = require("express");
-const { listActivity } = require("../controllers/activityController");
-const { protect, authorize } = require("../middleware/auth");
+import { Router } from "express";
+import { listActivity } from "../controllers/activityController";
+import { protect, authorize } from "../middleware/auth";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", protect, authorize("Admin", "Manager"), listActivity);
 
-module.exports = router;
+export default router;

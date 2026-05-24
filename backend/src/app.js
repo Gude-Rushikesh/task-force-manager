@@ -1,14 +1,14 @@
-const express = require("express");
-const cors = require("cors");
+import express, { json } from "express";
+import cors from "cors";
 
-const authRoutes = require("./routes/authRoutes");
-const employeeRoutes = require("./routes/employeeRoutes");
-const taskRoutes = require("./routes/taskRoutes");
-const departmentRoutes = require("./routes/departmentRoutes");
-const analyticsRoutes = require("./routes/analyticsRoutes");
-const activityRoutes = require("./routes/activityRoutes");
-const errorHandler = require("./middleware/errorHandler");
-const AppError = require("./utils/AppError");
+import authRoutes from "./routes/authRoutes";
+import employeeRoutes from "./routes/employeeRoutes";
+import taskRoutes from "./routes/taskRoutes";
+import departmentRoutes from "./routes/departmentRoutes";
+import analyticsRoutes from "./routes/analyticsRoutes";
+import activityRoutes from "./routes/activityRoutes";
+import errorHandler from "./middleware/errorHandler";
+import AppError from "./utils/AppError";
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json({ limit: "1mb" }));
+app.use(json({ limit: "1mb" }));
 
 app.get("/health", (req, res) => {
   res.json({ status: "ok", service: "task-force-api" });
@@ -46,4 +46,4 @@ app.use((req, _res, next) => {
 
 app.use(errorHandler);
 
-module.exports = app;
+export default app;

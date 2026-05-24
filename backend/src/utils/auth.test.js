@@ -1,14 +1,14 @@
-const test = require("node:test");
-const assert = require("node:assert/strict");
+import test from "node:test";
+import { equal } from "node:assert/strict";
 
-const { hashPassword, verifyPassword } = require("./password");
-const { signToken, verifyToken } = require("./jwt");
+import { hashPassword, verifyPassword } from "./password";
+import { signToken, verifyToken } from "./jwt";
 
 test("password hashing verifies the original password only", () => {
   const hash = hashPassword("SecurePass123");
 
-  assert.equal(verifyPassword("SecurePass123", hash), true);
-  assert.equal(verifyPassword("WrongPass123", hash), false);
+  equal(verifyPassword("SecurePass123", hash), true);
+  equal(verifyPassword("WrongPass123", hash), false);
 });
 
 test("signed tokens can be verified", () => {
@@ -18,6 +18,6 @@ test("signed tokens can be verified", () => {
   const token = signToken({ sub: "user-1", role: "Admin" });
   const payload = verifyToken(token);
 
-  assert.equal(payload.sub, "user-1");
-  assert.equal(payload.role, "Admin");
+  equal(payload.sub, "user-1");
+  equal(payload.role, "Admin");
 });

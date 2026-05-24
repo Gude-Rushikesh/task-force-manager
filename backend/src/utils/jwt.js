@@ -1,5 +1,5 @@
-const crypto = require("crypto");
-const AppError = require("./AppError");
+import { createHmac } from "crypto";
+import AppError from "./AppError";
 
 function base64Url(input) {
   return Buffer.from(input)
@@ -30,8 +30,7 @@ function signToken(payload) {
 
   const encodedHeader = base64Url(JSON.stringify(header));
   const encodedBody = base64Url(JSON.stringify(body));
-  const signature = crypto
-    .createHmac("sha256", secret)
+  const signature = createHmac("sha256", secret)
     .update(`${encodedHeader}.${encodedBody}`)
     .digest("base64")
     .replace(/=/g, "")
@@ -49,8 +48,7 @@ function verifyToken(token) {
     throw new AppError("Invalid authentication token", 401);
   }
 
-  const expectedSignature = crypto
-    .createHmac("sha256", secret)
+  const expectedSignature = createHmac("sha256", secret)
     .update(`${encodedHeader}.${encodedBody}`)
     .digest("base64")
     .replace(/=/g, "")
@@ -69,4 +67,4 @@ function verifyToken(token) {
   return payload;
 }
 
-module.exports = { signToken, verifyToken };
+export default { signToken, verifyToken };

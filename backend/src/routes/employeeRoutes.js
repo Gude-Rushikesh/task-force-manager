@@ -1,14 +1,8 @@
-const express = require("express");
-const {
-  listEmployees,
-  getEmployee,
-  createEmployee,
-  updateEmployee,
-  deleteEmployee,
-} = require("../controllers/employeeController");
-const { protect, authorize } = require("../middleware/auth");
+import { Router } from "express";
+import { listEmployees, getEmployee, createEmployee, updateEmployee, deleteEmployee } from "../controllers/employeeController";
+import { protect, authorize } from "../middleware/auth";
 
-const router = express.Router();
+const router = Router();
 
 router.use(protect);
 
@@ -23,4 +17,4 @@ router
   .put(authorize("Admin", "Manager"), updateEmployee)
   .delete(authorize("Admin"), deleteEmployee);
 
-module.exports = router;
+export default router;
